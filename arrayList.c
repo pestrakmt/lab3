@@ -136,38 +136,17 @@ void printArray(arrayList * arylstP)
         if (arylstP->type == charType)
         {
             //fill in the missing code that gets the element and &s it with 0xff
-            if ((((char*) (arylstP->array))[i] & 0x80) != 0
-                && (((int*) (arylstP->array))[i] & 0x80000000) == 0)
-            {
-                unsigned char element = ((char*) (arylstP->array))[i] & 0xff;
-                printf("%02x ", element);
-            }
-            else
-            {
-                char element = ((char*) (arylstP->array))[i] & 0xff;
-                printf("%02x ", element);
-            }
+            printf("%02x ",(((char*) (arylstP->array))[i]) & 0xff);
         }
         else if (arylstP->type == shortType)
         {
             //fill in the missing code that gets the element and &s it with 0xffff
-            if ((((short*) (arylstP->array))[i] & 0x8000) != 0
-                && (((int*) (arylstP->array))[i] & 0x80000000) == 0)
-            {
-                unsigned short element = ((short*) (arylstP->array))[i] & 0xffff;
-                printf("%04x ", element);
-            }
-            else
-            {
-                short element = ((short*) (arylstP->array))[i] & 0xffff;
-                printf("%04x ", element);
-            }
+            printf("%04x ", (((short*) (arylstP->array))[i]) & 0xffff);
         }
         else if (arylstP->type == intType)
         {
             //fill in the missing code that gets the element and &s it with 0xffffffff
-            int element = ((int*) (arylstP->array))[i] & 0xffffffff;
-            printf("%08x ", element);
+            printf("%08x ", (((int*) (arylstP->array))[i]) & 0xffffffff);
         }
     }
     printf("\n");
